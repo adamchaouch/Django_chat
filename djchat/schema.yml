@@ -1,0 +1,7 @@
+openapi: 3.0.3
+info:
+  title: chat API
+  version: 1.0.0
+  description: connecting memebrers with servers
+paths: {}
+components: {}
