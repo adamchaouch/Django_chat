@@ -1,16 +1,26 @@
 from django.db.models import Count
 from django.shortcuts import render
+from drf_spectacular.utils import extend_schema
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed, ValidationError
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from .models import Server
-from .serializers import ServerSerializer
+from .models import Category, Server
+from .serializers import CategorySerializer, ServerSerializer
 from .shcema import server_list_docs
 
 # Create your views here.
 
+class categoryListViewSet(viewsets.ViewSet):
 
+    queryset=Category.objects.all()
+
+    #permission_classes=[IsAuthenticated]
+    @extend_schema(responses=CategorySerializer)
+    def list(self, request):
+        serializer=CategorySerializer(self.queryset,many=True)
+        return Response(serializer.data)
 class ServerListViewSet(viewsets.ViewSet):
     """
     A ViewSet for retrieving a list of Server objects with optional filtering.
@@ -40,7 +50,7 @@ class ServerListViewSet(viewsets.ViewSet):
     """
 
     queryset = Server.objects.all()
-
+    #permission_classes=[IsAuthenticated]
     @server_list_docs
     def list(self, request):
         # Extracting query parameters
