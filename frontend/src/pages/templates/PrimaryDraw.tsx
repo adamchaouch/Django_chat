@@ -50,7 +50,7 @@ const Drawer=styled(MuiDrawer,{})(({theme,open}) =>({
   ...(open &&{...openedMixin(),
 "& .MuiDrawer-paper":openedMixin(),
 }),
-...(!open &&{...openedMixin(),
+...(!open &&{...closedMixin(),
     "& .MuiDrawer-paper":closedMixin(),
     }),
 }))

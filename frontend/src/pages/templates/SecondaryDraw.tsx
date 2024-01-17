@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box} from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import useAxiosInterceptor from "../../helpers/jwtinterceptor"
 import React from "react"
@@ -29,6 +29,9 @@ const jwtAxios=useAxiosInterceptor();
     overflow:"auto",
     }}>
            {children}
-    </Box>)
+    </Box>
+    
+    
+    )
 }
 export default SecondaryDraw

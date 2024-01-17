@@ -1,9 +1,12 @@
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
+import { ReactNode } from "react";
 
+type Props ={
+    children:ReactNode;
+}
 
-
-const Main =()=>{
+const Main: React.FC<Props> =({children})=>{
     const theme =useTheme();
 
     return(
@@ -13,7 +16,7 @@ const Main =()=>{
         mt:`${theme.PrimaryAppBar.height}px`,
         overflow:"hidden",
         }}>
-            <Typography variant="h2">Main  component</Typography>
+            {children}
         </Box>)
 }
 

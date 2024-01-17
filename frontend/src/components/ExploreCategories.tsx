@@ -45,7 +45,6 @@ return <>
                         </ListItemIcon>
                     <ListItemText primary={<Typography variant="body1" textAlign="start" paddingLeft={1}>
                         {item.name}
-
                     </Typography>}
                     
                     
